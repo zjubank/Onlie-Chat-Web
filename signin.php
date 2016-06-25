@@ -3,10 +3,10 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
-	<title>登录</title>
+	<title>注册</title>
 
 	<!-- Bootstrap -->
 	<link href="./css/bootstrap.css" rel="stylesheet">
@@ -27,16 +27,21 @@
  	 	 </div>
 
  		 <div class="form-group">
- 		 <label for="inputPassword">密码</label>
- 		 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+   		 <label for="inputPassword">密码</label>
+   		 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
  	 	 </div>
 
- 		 <div class="checkbox">
- 			 <label>
- 				 <input type="checkbox" value="remember-me"> 记住我
- 			 </label>
- 		 </div>
- 		 <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+     <!-- <div class="form-group">
+   		 <label for="inputPassword">确认密码</label>
+   		 <input type="password" name="confirmpassword" id="reinputPassword" class="form-control" placeholder="Password" required>
+ 	 	 </div> -->
+
+     <!-- <div class="form-group">
+       <label for="inputAvatar">头像</label>
+       <input type="file" id="exampleInputFile">
+     </div> -->
+
+ 		 <button class="btn btn-lg btn-primary btn-block" type="submit">立即注册</button>
  	 </form>
 
  </div>

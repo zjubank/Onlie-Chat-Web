@@ -25,7 +25,7 @@
         $email = $posts["email"];
 
         include 'dbconnect.php';
-        $query = "SELECT email FROM user_info WHERE email = '$email' AND password = '$password'";
+        $query = "SELECT email, id FROM user_info WHERE email = '$email' AND password = '$password'";
         $result = mysql_query($query);
         $user_info = mysql_fetch_array($result);
 
@@ -33,6 +33,7 @@
         {
 					session_start();
 					$_SESSION["login"] = 1;
+					$_SESSION["id"] = $user_info["id"];
           $_SESSION["email"] = $user_info["email"];
           echo "<p class=\"text-center\">".$_SESSION["email"].":您已登录成功，即将自动跳转回首页</p>\n";
           echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"index.php\">这里</a></p>\n";
