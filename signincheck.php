@@ -52,9 +52,9 @@
           $create_user_friend_query = "CREATE TABLE `CHAT`.`friend_".$user_info["id"]."` (`friend_id` INT NOT NULL,PRIMARY KEY (`friend_id`))";
           $create_user_friend_result = mysql_query($create_user_friend_query);
 
-          $create_user_record_query = "CREATE TABLE `CHAT`.`record_".$user_info["id"]."` (`record_id` INT NOT NULL,`record_content` VARCHAR(45) NULL,`record_time` DATETIME NULL,`record_state` INT NULL,`multimedia_record` BLOB NULL,PRIMARY KEY (`record_id`))";
+          $create_user_record_query = "CREATE TABLE `CHAT`.`record_".$user_info["id"]."` (`record_id` INT NOT NULL AUTO_INCREMENT,`record_sender` INT NOT NULL,`record_time` DATETIME NOT NULL,`record_content` VARCHAR(45) NULL,`record_state` INT NULL,`multimedia_record` BLOB NULL,PRIMARY KEY (`record_id`))";
           $create_user_record_result = mysql_query($create_user_record_query);
-          
+
           if(!empty(create_user_result))
             echo "<p class=\"text-center\">注册成功，请返回首页登录</p>\n";
           	echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"index.php\">这里</a></p>\n";

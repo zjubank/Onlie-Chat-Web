@@ -28,7 +28,7 @@
 	<div class="container">
 
 	 <form class="form-signin" role="form" action="logincheck.php" method="post">
-		 <h2 class="form-signin-heading">请登录</h2>
+		 <h2 class="form-signin-heading">登录</h2>
 
 		 <div class="form-group">
 			 <label for="inputEmail">邮箱地址</label>

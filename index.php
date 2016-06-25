@@ -41,10 +41,10 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Let Chat！</h1>
+            <h1 class="cover-heading">Let Chat!</h1>
             <p class="lead"></p>
-            <p class="lead">Chat是一个基于Browser/Server的聊天工具</p>
-            <p class="lead">登录或注册，并与你的好友开始聊天</p>
+            <p class="lead"><?php if(!$_SESSION["login"]==1) echo "Chat是一个基于Browser/Server的聊天工具"; else echo "欢迎回来，".$_SESSION["email"]; ?></p>
+            <p class="lead"><?php if(!$_SESSION["login"]==1) echo "登录或注册，并与你的好友开始聊天" ?></p>
             <!-- <h1 class="cover-heading">ラブライブ！</h1>
             <p class="lead">IF WE WANT TO PROTECT</p>
             <p class="lead">OUT BELOVED SCHOOL,</p>
