@@ -2,8 +2,12 @@
 <?php session_start(); ?>
 <html lang="zh-cn">
 
+<?php
+  require 'dbconnect.php';
+ ?>
 <head>
 	<title>首页</title>
+  
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 	<link href="./css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
