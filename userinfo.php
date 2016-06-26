@@ -56,21 +56,29 @@
     </nav>
 
 
-    <?php
-      include "dbconnect.php";
+    <div class="container">
+      <p></p>
+      <div class="panel panel-default">
+        <div class="panel-heading">我的资料</div>
+        <div class="panel-body">
+          <?php
+            include "dbconnect.php";
 
-      $info_query = "SELECT id,email,nickname,phrase,gender,birth_day,phonenumber,homepage FROM user_info where id=".$_SESSION["id"];
-      $info_result = mysql_query($info_query);
-      $info = mysql_fetch_array($info_result);
+            $info_query = "SELECT id,email,nickname,phrase,gender,birth_day,phonenumber,homepage FROM user_info where id=".$_SESSION["id"];
+            $info_result = mysql_query($info_query);
+            $info = mysql_fetch_array($info_result);
 
-      echo "<p>邮箱：".$info["email"]."</p>";
-      echo "<p>昵称：".$info["nickname"]."</p>";
-      echo "<p>签名：".$info["phrase"]."</p>";
-      echo "<p>性别：".$info["gender"]."</p>";
-      echo "<p>生日：".$info["birth_day"]."</p>";
-      echo "<p>联系电话：".$info["phonenumber"]."</p>";
-      echo "<p>个人主页：".$info["homepage"]."</p>";
-    ?>
+            echo "<p>邮箱：".$info["email"]."</p>";
+            echo "<p>昵称：".$info["nickname"]."</p>";
+            echo "<p>签名：".$info["phrase"]."</p>";
+            echo "<p>性别：".$info["gender"]."</p>";
+            echo "<p>生日：".$info["birth_day"]."</p>";
+            echo "<p>联系电话：".$info["phonenumber"]."</p>";
+            echo "<p>个人主页：".$info["homepage"]."</p>";
+          ?>
+        </div>
+      </div>
+    </div>
 
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>

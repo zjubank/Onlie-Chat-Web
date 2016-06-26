@@ -94,8 +94,10 @@
         <div id="record_receive"></div>
       </ul>
 
+
       <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
-      <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</button>
+      <p></p>
+      <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</a>
       <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
     </div>
     <script src="./js/jquery.js"></script>
