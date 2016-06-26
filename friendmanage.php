@@ -17,6 +17,15 @@
   	<link href="./css/bootstrap.css" rel="stylesheet" >
   	<link href="./css/bootstrap-theme.css" rel="stylesheet">
     <script src="./js/ie-emulation-modes-warning.js"></script>
+    <script>
+    function clearinput()
+    {
+    		document.getElementById("id").value="";
+        document.getElementById("email").value="";
+        document.getElementById("nickname").value="";
+    }
+    </script>
+
   </head>
 
   <body>
@@ -55,11 +64,37 @@
     </nav>
 
     <div class="container">
-      <p></p>
-      <form class="form-search">
-        <input type="text" class="input-medium search-query">
-        <button type="submit" class="btn">Search</button>
-      </form>
+      <div class="row-fluid">
+    		<div class="column">
+    			<form class="form-horizontal" action="friendsearch.php" method="post">
+    				<fieldset>
+              <p></p>
+    					<div class="form-group">
+    						<label class="col-sm-2 control-label">ID</label>
+    						<div class="col-sm-10">
+    							<input name="id" id="id" type="text" placeholder="ID" class="form-control">
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label class="col-sm-2 control-label">邮箱</label>
+    						<div class="col-sm-10">
+    							<input name="email" id="email" type="text" placeholder="email" class="form-control">
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label class="col-sm-2 control-label">昵称</label>
+    						<div class="col-sm-10">
+    							<input name="nickname" id="nickname" type="text" placeholder="昵称" class="form-control">
+    						</div>
+    					</div>
+    					<div class="text-center">
+    							<input type="submit" value="查询" class="btn btn-primary"></input>
+    							<a class="btn btn-default" role="button" onclick="clearinput()">清空</a>
+    					</div>
+    				</fieldset>
+    			</form>
+    		</div>
+    	</div>
     </div>
 
     <script src="./js/jquery.js"></script>

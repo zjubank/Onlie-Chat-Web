@@ -20,4 +20,6 @@
 
     echo "<div>(".$row["record_time"].")</div></li>";
   }
+
+  // mysql_close($db_server);
 ?>

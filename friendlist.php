@@ -17,6 +17,18 @@
   	<link href="./css/bootstrap.css" rel="stylesheet" >
   	<link href="./css/bootstrap-theme.css" rel="stylesheet">
     <script src="./js/ie-emulation-modes-warning.js"></script>
+
+    <script>
+    function setfriend(friendid)
+    {
+    	xmlhttp=new XMLHttpRequest();
+    	xmlhttp.open("POST","setfriend.php",true);
+      xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    	xmlhttp.send("friendid="+friendid);
+      alert("Chat with friend: "+friendid);
+    }
+    </script>
+
   </head>
 
   <body>
@@ -62,11 +74,22 @@
         $friend_result = mysql_query($friend_query);
         while( $row = mysql_fetch_array($friend_result))
         {
-          echo "<li class=\"list-group-item\">".$row["friend_id"]."</li>";
+          $friend_info_query = "SELECT email,nickname FROM user_info WHERE id=".$row["friend_id"];
+          $friend_info_result = mysql_query($friend_info_query);
+          $friend_info = mysql_fetch_array($friend_info_result);
+
+          echo "<li class=\"list-group-item\">";
+          echo "<div onclick=\"setfriend(".$row["friend_id"].")\">";
+          echo "<div>".$row["friend_id"]."</div>";
+          echo "<div>".$friend_info["email"]."</div>";
+          echo "<div>".$friend_info["nickname"]."</div>";
+          echo "</div>";
+          echo "</li>";
         }
       ?>
       </ul>
     </div>
+
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/ie10-viewport-bug-workaround.js"></script>

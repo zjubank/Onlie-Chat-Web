@@ -20,6 +20,7 @@
     <script>
     function receiverecord()
     {
+
     	xmlhttp=new XMLHttpRequest();
     	xmlhttp.onreadystatechange=function()
     	{
@@ -52,10 +53,29 @@
       document.getElementById("record").value="";
     }
     </script>
+
+    <script>
+      function EnterPress(e){ //传入 event
+          var e = e || window.event;
+          if(e.keyCode == 13){
+            sendrecord();
+            receiverecord();
+          }
+      }
+    </script>
+
+    <!-- <script type="text/javascript" charset="utf-8">
+        $(function(){
+                lct = document.getElementById('content');
+                lct.scrollTop=Math.max(0,lct.scrollHeight-lct.offsetHeight);
+            })
+        })
+    </script> -->
+
+
   </head>
 
-  <body>
-
+  <body onload="receiverecord()">
     <?php
   	if( $_SESSION["login"]!=1 )
   	{
@@ -65,7 +85,6 @@
   		exit();
   	}
     ?>
-
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -95,7 +114,11 @@
         <div id="record_receive"></div>
       </ul>
 
-      <div clas="row">
+      <input type="text" name="record" id="record" class="form-control" placeholder="Text input" onkeydown="EnterPress()">
+      <p></p>
+      <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</a>
+      <!-- <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a> -->
+      <!-- <div clas="row">
         <div class="col-xs-10">
         <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
         </div>
@@ -105,7 +128,7 @@
       </div>
     </div>
     <div class="col-xs-1">
-    <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
+    <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a> -->
     </div>
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
