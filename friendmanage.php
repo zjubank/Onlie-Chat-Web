@@ -45,9 +45,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="chat.php">聊天</a></li>
+            <li><a href="chat.php">聊天</a></li>
             <li><a href="friendlist.php">好友列表</a></li>
-            <li><a href="friendmanage.php">好友管理</a></li>
+            <li class="active"><a href="friendmanage.php">好友管理</a></li>
             <li><a href="userinfo.php">个人信息</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -63,66 +63,7 @@
       echo $row["friend_id"];//.":id from list";
     }
 
-    $record_query = "SELECT record_id,record_sender,record_time,record_content,record_state FROM record_".$_SESSION["id"];
-    $record_result = mysql_query($record_query);
-    while( $row = mysql_fetch_array($record_result))
-    {
-      echo $row["record_id"];
-      echo $row["record_sender"];
-      echo $row["record_time"];
-      echo $row["record_content"];
-      echo $row["record_state"];
-    }
     ?>
-
-
-    <script type="text/javascript">
-        var getting = {
-          url:'server_polling.php',
-          dataType:'json',
-          success:function(res) {
-           document.write(res);
-           var d = new Date();
-           document.write("time"+d.getTime());
-          }
-        };
-        window.setInterval(function(){$.ajax(getting)},1000);
-    </script>
-
-      <table class="table">
-        <tr>
-          <th>Speaker</th>
-          <th>Text</th>
-          <th>Time</th>
-        </tr>
-        <tr>
-          <td>kotori</td>
-          <td>Hello</td>
-          <td><?php $phptime = date ("Y-m-d H:i:s", time()); echo $phptime;?></td>
-        </tr>
-      </table>
-
-      <form class="form-inline">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Text input">
-        </div>
-        <button type="submit" class="btn btn-primary">发送</button>
-      </form>
-    <!-- <div class="container-fluid">
-    	<div class="row-fluid">
-    		<div class="span4">
-    			<p>
-    				好友
-    			</p>
-    		</div>
-    		<div class="span8">
-    			<p>
-    				聊天
-    			</p>
-    		</div>
-    	</div>
-    </div> -->
-
 
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
