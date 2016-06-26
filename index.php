@@ -10,6 +10,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
     <title>首页</title>
 
@@ -41,7 +43,7 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Let Chat!</h1>
+            <h1 class="cover-heading">Let's Chat!</h1>
             <p class="lead"></p>
             <p class="lead"><?php if(!$_SESSION["login"]==1) echo "Chat是一个基于Browser/Server的聊天工具"; else echo "欢迎回来，".$_SESSION["email"]; ?></p>
             <p class="lead"><?php if(!$_SESSION["login"]==1) echo "登录或注册，并与你的好友开始聊天" ?></p>
