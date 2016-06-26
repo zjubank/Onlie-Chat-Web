@@ -56,13 +56,12 @@
 
 
     <?php
-    $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
-    $friend_result = mysql_query($friend_query);
-    while( $row = mysql_fetch_array($friend_result))
-    {
-      echo $row["friend_id"];//.":id from list";
-    }
-
+      $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
+      $friend_result = mysql_query($friend_query);
+      while( $row = mysql_fetch_array($friend_result))
+      {
+        echo $_SESSION["id"]." has friends:".$row["friend_id"];//.":id from list";
+      }
     ?>
 
     <script src="./js/jquery.js"></script>

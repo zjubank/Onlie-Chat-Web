@@ -17,6 +17,40 @@
   	<link href="./css/bootstrap.css" rel="stylesheet" >
   	<link href="./css/bootstrap-theme.css" rel="stylesheet">
     <script src="./js/ie-emulation-modes-warning.js"></script>
+    <script>
+    function receiverecord()
+    {
+    	xmlhttp=new XMLHttpRequest();
+    	xmlhttp.onreadystatechange=function()
+    	{
+    		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+    			document.getElementById("record_receive").innerHTML=xmlhttp.responseText;
+    		}
+    	}
+    	xmlhttp.open("POST","server_receive_polling.php",true);
+      xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    	xmlhttp.send();
+    }
+    </script>
+
+    <script>
+    function sendrecord()
+    {
+    	xmlhttp=new XMLHttpRequest();
+    	xmlhttp.onreadystatechange=function()
+    	{
+    		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    		{
+    			document.getElementById("record_send").innerHTML=xmlhttp.responseText;
+    		}
+    	}
+    	xmlhttp.open("POST","server_send_polling.php",true);
+      xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    	xmlhttp.send("record="+document.getElementById("record").value);
+      // alert("Send:"+document.getElementById("record").value);
+    }
+    </script>
   </head>
 
   <body>
@@ -54,74 +88,18 @@
       </div>
     </nav>
 
-
-    <?php
-    $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
-    $friend_result = mysql_query($friend_query);
-    while( $row = mysql_fetch_array($friend_result))
-    {
-      echo $row["friend_id"];//.":id from list";
-    }
-
-    $record_query = "SELECT record_id,record_sender,record_time,record_content,record_state FROM record_".$_SESSION["id"];
-    $record_result = mysql_query($record_query);
-    while( $row = mysql_fetch_array($record_result))
-    {
-      echo $row["record_id"];
-      echo $row["record_sender"];
-      echo $row["record_time"];
-      echo $row["record_content"];
-      echo $row["record_state"];
-    }
-    ?>
+    <ul class="list-group">
+      <li id="record_receive"></li>
+      <li id="record_send"></li>
+    </ul>
+    <!-- <?php $phptime = date ("Y-m-d H:i:s", time()); echo $phptime;?> -->
 
 
-    <script type="text/javascript">
-        var getting = {
-          url:'server_polling.php',
-          dataType:'json',
-          success:function(res) {
-           document.write(res);
-           var d = new Date();
-           document.write("time"+d.getTime());
-          }
-        };
-        window.setInterval(function(){$.ajax(getting)},1000);
-    </script>
 
-      <table class="table">
-        <tr>
-          <th>Speaker</th>
-          <th>Text</th>
-          <th>Time</th>
-        </tr>
-        <tr>
-          <td>kotori</td>
-          <td>Hello</td>
-          <td><?php $phptime = date ("Y-m-d H:i:s", time()); echo $phptime;?></td>
-        </tr>
-      </table>
 
-      <form class="form-inline">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Text input">
-        </div>
-        <button type="submit" class="btn btn-primary">发送</button>
-      </form>
-    <!-- <div class="container-fluid">
-    	<div class="row-fluid">
-    		<div class="span4">
-    			<p>
-    				好友
-    			</p>
-    		</div>
-    		<div class="span8">
-    			<p>
-    				聊天
-    			</p>
-    		</div>
-    	</div>
-    </div> -->
+        <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
+        <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</button>
+        <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
 
 
     <script src="./js/jquery.js"></script>

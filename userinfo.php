@@ -29,6 +29,7 @@
   		echo "<meta http-equiv=\"refresh\" content=\"3;url=login.php\">";
   		exit();
   	}
+
     ?>
 
 
@@ -56,13 +57,19 @@
 
 
     <?php
-    $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
-    $friend_result = mysql_query($friend_query);
-    while( $row = mysql_fetch_array($friend_result))
-    {
-      echo $row["friend_id"];//.":id from list";
-    }
-
+      $info_query = "SELECT id,email,nickname,phrase,gender,birth_day,phonenumber,homepage FROM user_info where id=".$_SESSION["id"];
+      $info_result = mysql_query($info_query);
+      $info = mysql_fetch_array($friend_result);
+      echo $info_query;
+      echo "\n";
+      echo $info_result;
+      echo $info["email"];
+      echo $info["nickname"];
+      echo $info["phrase"];
+      echo $info["gender"];
+      echo $info["birth_day"];
+      echo $info["phonenumber"];
+      echo $info["homepage"];
     ?>
 
     <script src="./js/jquery.js"></script>
