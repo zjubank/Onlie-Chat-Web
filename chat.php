@@ -90,7 +90,7 @@
 
     <ul class="list-group">
       <li id="record_receive"></li>
-      <li id="record_send"></li>
+      <!-- <li id="record_send"></li> -->
     </ul>
     <!-- <?php $phptime = date ("Y-m-d H:i:s", time()); echo $phptime;?> -->
 

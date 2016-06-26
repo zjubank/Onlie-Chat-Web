@@ -57,19 +57,19 @@
 
 
     <?php
+      include "dbconnect.php";
+
       $info_query = "SELECT id,email,nickname,phrase,gender,birth_day,phonenumber,homepage FROM user_info where id=".$_SESSION["id"];
       $info_result = mysql_query($info_query);
-      $info = mysql_fetch_array($friend_result);
-      echo $info_query;
-      echo "\n";
-      echo $info_result;
-      echo $info["email"];
-      echo $info["nickname"];
-      echo $info["phrase"];
-      echo $info["gender"];
-      echo $info["birth_day"];
-      echo $info["phonenumber"];
-      echo $info["homepage"];
+      $info = mysql_fetch_array($info_result);
+
+      echo "<p>邮箱：".$info["email"]."</p>";
+      echo "<p>昵称：".$info["nickname"]."</p>";
+      echo "<p>签名：".$info["phrase"]."</p>";
+      echo "<p>性别：".$info["gender"]."</p>";
+      echo "<p>生日：".$info["birth_day"]."</p>";
+      echo "<p>联系电话：".$info["phonenumber"]."</p>";
+      echo "<p>个人主页：".$info["homepage"]."</p>";
     ?>
 
     <script src="./js/jquery.js"></script>

@@ -55,15 +55,16 @@
     </nav>
 
 
+    <!-- <ul class="list-group">
     <?php
-    $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
-    $friend_result = mysql_query($friend_query);
-    while( $row = mysql_fetch_array($friend_result))
-    {
-      echo $row["friend_id"];//.":id from list";
-    }
-
+      $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
+      $friend_result = mysql_query($friend_query);
+      while( $row = mysql_fetch_array($friend_result))
+      {
+        echo "<li class=\"list-group-item\">".$row["friend_id"]."</li>";
+      }
     ?>
+    </ul> -->
 
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
