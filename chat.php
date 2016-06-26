@@ -84,24 +84,20 @@
             <li><a href="friendmanage.php">好友管理</a></li>
             <li><a href="userinfo.php">个人信息</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
-    <ul class="list-group">
-      <li id="record_receive"></li>
-      <!-- <li id="record_send"></li> -->
-    </ul>
-    <!-- <?php $phptime = date ("Y-m-d H:i:s", time()); echo $phptime;?> -->
+    <div class="container">
+      <p></p>
+      <ul class="list-group">
+        <div id="record_receive"></div>
+      </ul>
 
-
-
-
-        <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
-        <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</button>
-        <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
-
-
+      <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
+      <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</button>
+      <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
+    </div>
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
