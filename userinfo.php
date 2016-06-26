@@ -76,6 +76,10 @@
             echo "<p>联系电话：".$info["phonenumber"]."</p>";
             echo "<p>个人主页：".$info["homepage"]."</p>";
           ?>
+          <p>
+            <button type="button" class="btn btn-primary">修改资料</button>
+            <button type="button" class="btn btn-default">修改密码</button>
+          </p>
         </div>
       </div>
     </div>

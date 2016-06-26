@@ -8,7 +8,7 @@
   while( $row = mysql_fetch_array($record_result) )
   {
     if($row["record_sender"]==$_SESSION["id"]) {
-      echo "<li class=\"list-group-item list-group-item-success\"><div>我";
+      echo "<li class=\"list-group-item list-group-item-success text-right\"><div>我";
     }
     else {
       $email_query = "SELECT email FROM user_info WHERE id=".$row["record_sender"];

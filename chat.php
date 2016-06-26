@@ -48,7 +48,8 @@
     	xmlhttp.open("POST","server_send_polling.php",true);
       xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     	xmlhttp.send("record="+document.getElementById("record").value);
-      // alert("Send:"+document.getElementById("record").value);
+
+      document.getElementById("record").value="";
     }
     </script>
   </head>
@@ -94,11 +95,17 @@
         <div id="record_receive"></div>
       </ul>
 
-
-      <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
-      <p></p>
-      <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</a>
-      <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
+      <div clas="row">
+        <div class="col-xs-10">
+        <input type="text" name="record" id="record" class="form-control" placeholder="Text input">
+        </div>
+        <div class="col-xs-1">
+        <a class="btn btn-primary" role="button" onclick="sendrecord()">发送</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-1">
+    <a class="btn btn-default" role="button" onclick="receiverecord()">收取</a>
     </div>
     <script src="./js/jquery.js"></script>
     <script src="./js/bootstrap.min.js"></script>
