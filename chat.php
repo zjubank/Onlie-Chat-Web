@@ -20,7 +20,7 @@
     <script>
     function receiverecord()
     {
-
+      var timer = setTimeout(receiverecord,500);
     	xmlhttp=new XMLHttpRequest();
     	xmlhttp.onreadystatechange=function()
     	{
@@ -33,6 +33,7 @@
       xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     	xmlhttp.send();
     }
+    receiverecord();
     </script>
 
     <script>
@@ -59,7 +60,7 @@
           var e = e || window.event;
           if(e.keyCode == 13){
             sendrecord();
-            receiverecord();
+            // receiverecord();
           }
       }
     </script>
@@ -75,13 +76,20 @@
 
   </head>
 
-  <body onload="receiverecord()">
+  <body >
     <?php
   	if( $_SESSION["login"]!=1 )
   	{
   		echo "<p class=\"text-center\">请先登录</p>\n";
   		echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"login.php\">这里</a>登录</p>\n";
   		echo "<meta http-equiv=\"refresh\" content=\"3;url=login.php\">";
+  		exit();
+  	}
+    if( !isset($_SESSION["friendid"]) )
+  	{
+  		echo "<p class=\"text-center\">请先选择好友</p>\n";
+  		echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"friendlist.php\">这里</a>选择好友</p>\n";
+  		echo "<meta http-equiv=\"refresh\" content=\"3;url=friendlist.php\">";
   		exit();
   	}
     ?>

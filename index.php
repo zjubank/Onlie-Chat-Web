@@ -34,7 +34,7 @@
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">首页</a></li>
                   <li><a href="chat.php">开始Chat</a></li>
-                  <li><a href="about.php">关于Chat</a></li>
+                  <li><a href="#">关于Chat</a></li>
                 </ul>
               </nav>
             </div>
