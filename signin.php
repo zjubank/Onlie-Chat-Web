@@ -6,7 +6,7 @@
 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	
+
 	<title>注册</title>
 
 	<!-- Bootstrap -->
@@ -32,11 +32,15 @@
    		 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
  	 	 </div>
 
-     <!-- <div class="form-group">
+     <div class="form-group">
    		 <label for="inputPassword">确认密码</label>
-   		 <input type="password" name="confirmpassword" id="reinputPassword" class="form-control" placeholder="Password" required>
- 	 	 </div> -->
+   		 <input type="password" name="confirmpassword" id="reinputPassword" class="form-control" placeholder="Retype Password" required>
+ 	 	 </div>
 
+		 <div class="form-group">
+   		 <label for="inputNickname">用户名</label>
+   		 <input type="text" name="nickmake" id="inputNickname" class="form-control" placeholder="Nickname" required>
+ 	 	 </div>
      <!-- <div class="form-group">
        <label for="inputAvatar">头像</label>
        <input type="file" id="exampleInputFile">
