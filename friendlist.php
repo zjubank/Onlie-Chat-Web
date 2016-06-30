@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
 
-    <title>首页</title>
+    <title>好友列表</title>
 
     <!-- Bootstrap -->
   	<link href="./css/bootstrap.css" rel="stylesheet" >
@@ -26,18 +26,28 @@
       	xmlhttp.open("POST","setfriendchat.php",true);
         xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
       	xmlhttp.send("friendid="+friendid);
-        alert("Chat with friend: "+ friendnickname);
+        // alert("开始和:"+ friendnickname+"聊天");
+        window.location.href="chat.php";
       }
     </script>
 
     <script>
       function setfrienddelete(friendid,friendnickname)
       {
-        xmlhttp=new XMLHttpRequest();
-      	xmlhttp.open("POST","setfrienddelete.php",true);
-        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-      	xmlhttp.send("friendid="+friendid);
-        alert("Delete friend: "+ friendnickname);
+        if(window.confirm("确认要删除好友\""+friendnickname+"\"吗?"))
+        {
+          xmlhttp=new XMLHttpRequest();
+        	xmlhttp.open("POST","setfrienddelete.php",true);
+          xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        	xmlhttp.send("friendid="+friendid);
+          alert("好友\""+ friendnickname+"\"已被删除");
+          location.reload();
+        }
+        else
+        {
+          exit();
+        }
+
       }
     </script>
 
@@ -45,10 +55,11 @@
       function setfriendgroup(friendid,friendnickname,friendgroup)
       {
         xmlhttp=new XMLHttpRequest();
-        xmlhttp.open("POST","setfrienddelete.php",true);
+        xmlhttp.open("POST","setfriendgroup.php",true);
         xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        xmlhttp.send("friendid="+friendid);
-        alert("Friend : "+ friendnickname+" in group:"+friendgroup);
+        xmlhttp.send("friendid="+friendid+"&friendgroup="+friendgroup);
+        // alert("好友: "+ friendnickname+"已被重新分组");
+        location.reload();
       }
     </script>
 
@@ -90,7 +101,7 @@
     </nav>
 
     <?php
-      $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
+      $friend_query = "SELECT friend_id,friend_group FROM friend_".$_SESSION["id"];
       $friend_result = mysql_query($friend_query);
       $row = mysql_fetch_array($friend_result);
       // echo $row;
@@ -127,14 +138,29 @@
           echo "<p></p>
             <div class=\"dropdown\">
               <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">";
-                // 未分组
+          if($row["friend_group"]==0)
+          {
+            echo "未分组";
+          }
+          else if($row["friend_group"]==1)
+          {
+            echo "朋友";
+          }
+          else if($row["friend_group"]==2)
+          {
+            echo "同学";
+          }
+          else if($row["friend_group"]==3)
+          {
+            echo "同事";
+          }
           echo "<span class=\"caret\"></span>
               </button>
               <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">
-                <li><a href=\"#\">朋友</a></li>
-                <li><a href=\"#\">同学</a></li>
-                <li><a href=\"#\">同事</a></li>
-                <li><a href=\"#\">取消分组</a></li>
+                <li><a onclick=\"setfriendgroup(".$row["friend_id"].",'".$friend_info["nickname"]."',1)\">朋友</a></li>
+                <li><a onclick=\"setfriendgroup(".$row["friend_id"].",'".$friend_info["nickname"]."',2)\">同学</a></li>
+                <li><a onclick=\"setfriendgroup(".$row["friend_id"].",'".$friend_info["nickname"]."',3)\">同事</a></li>
+                <li><a onclick=\"setfriendgroup(".$row["friend_id"].",'".$friend_info["nickname"]."',0)\">取消分组</a></li>
               </ul>
             </div>
           ";

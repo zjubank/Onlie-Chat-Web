@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>首页</title>
+    <title>开始聊天</title>
 
     <!-- Bootstrap -->
   	<link href="./css/bootstrap.css" rel="stylesheet" >
