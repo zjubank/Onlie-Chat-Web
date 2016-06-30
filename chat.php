@@ -118,6 +118,13 @@
 
     <div class="container">
       <p></p>
+      <?php
+        $nickname_query = "SELECT nickname FROM user_info WHERE id=".$_SESSION["friendid"];
+        $nickname_result = mysql_query($nickname_query);
+        $nickname = mysql_fetch_array($nickname_result);
+
+        echo "<h2>与".$nickname["nickname"]."聊天中";
+       ?>
       <ul class="list-group">
         <div id="record_receive"></div>
       </ul>

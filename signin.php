@@ -39,7 +39,7 @@
 
 		 <div class="form-group">
    		 <label for="inputNickname">用户名</label>
-   		 <input type="text" name="nickmake" id="inputNickname" class="form-control" placeholder="Nickname" required>
+   		 <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="Nickname" required>
  	 	 </div>
      <!-- <div class="form-group">
        <label for="inputAvatar">头像</label>

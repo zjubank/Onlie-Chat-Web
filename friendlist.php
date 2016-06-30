@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    
+
     <title>首页</title>
 
     <!-- Bootstrap -->
@@ -20,13 +20,13 @@
     <script src="./js/ie-emulation-modes-warning.js"></script>
 
     <script>
-    function setfriend(friendid)
+    function setfriend(friendid,friendnickname)
     {
     	xmlhttp=new XMLHttpRequest();
     	xmlhttp.open("POST","setfriend.php",true);
       xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     	xmlhttp.send("friendid="+friendid);
-      alert("Chat with friend: "+friendid);
+      alert("Chat with friend: "+ friendnickname);
     }
     </script>
 
@@ -80,7 +80,7 @@
           $friend_info = mysql_fetch_array($friend_info_result);
 
           echo "<li class=\"list-group-item\">";
-          echo "<div onclick=\"setfriend(".$row["friend_id"].")\">";
+          echo "<div onclick=\"setfriend(".$row["friend_id"].",'".$friend_info["nickname"]."')\">";
           echo "<div>".$row["friend_id"]."</div>";
           echo "<div>".$friend_info["email"]."</div>";
           echo "<div>".$friend_info["nickname"]."</div>";
