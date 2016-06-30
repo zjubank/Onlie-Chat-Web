@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    
+
     <title>首页</title>
 
     <!-- Bootstrap -->
@@ -49,7 +49,7 @@
           <ul class="nav navbar-nav">
             <li><a href="chat.php">聊天</a></li>
             <li><a href="friendlist.php">好友列表</a></li>
-            <li><a href="friendmanage.php">好友管理</a></li>
+            <li><a href="friendmanage.php">好友搜索</a></li>
             <li class="active"><a href="userinfo.php">个人信息</a></li>
           </ul>
         </div><!--/.nav-collapse -->

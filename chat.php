@@ -109,7 +109,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="chat.php">聊天</a></li>
             <li><a href="friendlist.php">好友列表</a></li>
-            <li><a href="friendmanage.php">好友管理</a></li>
+            <li><a href="friendmanage.php">好友搜索</a></li>
             <li><a href="userinfo.php">个人信息</a></li>
           </ul>
         </div>

@@ -75,7 +75,7 @@
           <ul class="nav navbar-nav">
             <li><a href="chat.php">聊天</a></li>
             <li><a href="friendlist.php">好友列表</a></li>
-            <li class="active"><a href="friendmanage.php">好友管理</a></li>
+            <li class="active"><a href="friendmanage.php">好友搜索</a></li>
             <li><a href="userinfo.php">个人信息</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -98,11 +98,20 @@
                               while( $row = mysql_fetch_array($result))
                               {
                                 echo "<li class=\"list-group-item\">";
-                                echo "<div onclick=\"addfriend(".$_SESSION["id"].",".$row["id"].")\">";
+                                echo "<div class=\"container-fluid\">";
+                                echo "<div class=\"row\">";
+                                echo "<div class=\"col-md-11\">";
+                                echo "<div>";
                                 echo "<div>ID: ".$row["id"]."</div>";
                                 echo "<div>Email: ".$row["email"]."</div>";
                                 echo "<div>Nickname: ".$row["nickname"]."</div>";
                                 echo "</div>";
+                                echo "</div>"; // col-md-11
+                                echo "<div class=\"col-md-1\">";
+                                echo "<p></p><button type=\"button\" class=\"btn btn-default\"  onclick=\"addfriend(".$_SESSION["id"].",".$row["id"].")\">加为好友</button>";
+                                echo "</div>"; // col-md-1
+                                echo "</div>"; // row
+                                echo "</div>"; // container-fluid
                                 echo "</li>";
                               }
     ?>

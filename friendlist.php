@@ -20,14 +20,36 @@
     <script src="./js/ie-emulation-modes-warning.js"></script>
 
     <script>
-    function setfriend(friendid,friendnickname)
-    {
-    	xmlhttp=new XMLHttpRequest();
-    	xmlhttp.open("POST","setfriend.php",true);
-      xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    	xmlhttp.send("friendid="+friendid);
-      alert("Chat with friend: "+ friendnickname);
-    }
+      function setfriendchat(friendid,friendnickname)
+      {
+      	xmlhttp=new XMLHttpRequest();
+      	xmlhttp.open("POST","setfriendchat.php",true);
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      	xmlhttp.send("friendid="+friendid);
+        alert("Chat with friend: "+ friendnickname);
+      }
+    </script>
+
+    <script>
+      function setfrienddelete(friendid,friendnickname)
+      {
+        xmlhttp=new XMLHttpRequest();
+      	xmlhttp.open("POST","setfrienddelete.php",true);
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+      	xmlhttp.send("friendid="+friendid);
+        alert("Delete friend: "+ friendnickname);
+      }
+    </script>
+
+    <script>
+      function setfriendgroup(friendid,friendnickname,friendgroup)
+      {
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("POST","setfrienddelete.php",true);
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xmlhttp.send("friendid="+friendid);
+        alert("Friend : "+ friendnickname+" in group:"+friendgroup);
+      }
     </script>
 
   </head>
@@ -60,33 +82,71 @@
           <ul class="nav navbar-nav">
             <li><a href="chat.php">聊天</a></li>
             <li class="active"><a href="friendlist.php">好友列表</a></li>
-            <li><a href="friendmanage.php">好友管理</a></li>
+            <li><a href="friendmanage.php">好友搜索</a></li>
             <li><a href="userinfo.php">个人信息</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">
-      <p></p>
-      <ul class="list-group">
-      <?php
-        $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
-        $friend_result = mysql_query($friend_query);
-        while( $row = mysql_fetch_array($friend_result))
+    <?php
+      $friend_query = "SELECT friend_id FROM friend_".$_SESSION["id"];
+      $friend_result = mysql_query($friend_query);
+      $row = mysql_fetch_array($friend_result);
+      // echo $row;
+      if(empty($row))
+      {
+        echo "<div class=\"container-fluid\">";
+        echo "<p></p><p>你还没有好友，快去添加一个吧</p>";
+        echo "<div>";
+        exit();
+      }
+      else
+      {
+        echo "<div class=\"container\">";
+        echo "<p></p>";
+        echo "<ul class=\"list-group\">";
+
+        do
         {
           $friend_info_query = "SELECT email,nickname FROM user_info WHERE id=".$row["friend_id"];
           $friend_info_result = mysql_query($friend_info_query);
           $friend_info = mysql_fetch_array($friend_info_result);
 
           echo "<li class=\"list-group-item\">";
-          echo "<div onclick=\"setfriend(".$row["friend_id"].",'".$friend_info["nickname"]."')\">";
+          echo "<div class=\"container-fluid\">";
+          echo "<div class=\"col-md-9\">";
           echo "<div>好友ID:".$row["friend_id"]."</div>";
           echo "<div>好友邮箱:".$friend_info["email"]."</div>";
           echo "<div>好友昵称:".$friend_info["nickname"]."</div>";
+          echo "</div>"; // col9
+          echo "<div class=\"col-md-1\">";
+          echo "<p></p><button href=\"chat.php\" type=\"button\" class=\"btn btn-primary\" onclick=\"setfriendchat(".$row["friend_id"].",'".$friend_info["nickname"]."')\">开始聊天</button>";
+          echo "</div>";// col1
+          echo "<div class=\"col-md-1\">";
+          echo "<p></p>
+            <div class=\"dropdown\">
+              <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">";
+                // 未分组
+          echo "<span class=\"caret\"></span>
+              </button>
+              <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">
+                <li><a href=\"#\">朋友</a></li>
+                <li><a href=\"#\">同学</a></li>
+                <li><a href=\"#\">同事</a></li>
+                <li><a href=\"#\">取消分组</a></li>
+              </ul>
+            </div>
+          ";
+          echo "</div>";// col1
+          echo "<div class=\"col-md-1\">";
+          echo "<p></p><button type=\"button\" class=\"btn btn-danger\" onclick=\"setfrienddelete(".$row["friend_id"].",'".$friend_info["nickname"]."')\">删除好友</button>";
+          echo "</div>";// col1
+          echo "</div>";// container-fluid
           echo "</div>";
           echo "</li>";
-        }
+        }while( $row = mysql_fetch_array($friend_result) );
+      }
       ?>
       </ul>
     </div>
