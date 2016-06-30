@@ -105,6 +105,8 @@
       $friend_result = mysql_query($friend_query);
       $row = mysql_fetch_array($friend_result);
       // echo $row;
+      echo "<div class=\"container\">";
+      echo "<p></p>";
       if(empty($row))
       {
         echo "<div class=\"container-fluid\">";
@@ -114,8 +116,6 @@
       }
       else
       {
-        echo "<div class=\"container\">";
-        echo "<p></p>";
         echo "<ul class=\"list-group\">";
 
         do
