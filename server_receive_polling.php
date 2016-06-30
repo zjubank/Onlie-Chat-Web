@@ -2,7 +2,7 @@
   session_start();
 
   include 'dbconnect.php';
-  $record_query = "SELECT record_id,record_sender,record_time,record_content FROM record_".$_SESSION["id"]." WHERE record_state=0";
+  $record_query = "SELECT record_id,record_sender,record_time,record_content FROM record_".$_SESSION["id"]." WHERE record_receiver=".$_SESSION["friendid"]." OR record_sender=".$_SESSION["friendid"];
   $record_result = mysql_query($record_query);
 
   while( $row = mysql_fetch_array($record_result) )

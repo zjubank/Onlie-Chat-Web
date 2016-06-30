@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	
+
 	<title>登录中</title>
 
 	<!-- Bootstrap -->
@@ -25,7 +25,7 @@
           echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"index.php\">这里</a></p>\n";
           echo "<meta http-equiv=\"refresh\" content=\"3;url=index.php\">";
           $_SESSION["login"] = 0;
-
+					session_destroy();
         }
         else
         {

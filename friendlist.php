@@ -81,9 +81,9 @@
 
           echo "<li class=\"list-group-item\">";
           echo "<div onclick=\"setfriend(".$row["friend_id"].",'".$friend_info["nickname"]."')\">";
-          echo "<div>".$row["friend_id"]."</div>";
-          echo "<div>".$friend_info["email"]."</div>";
-          echo "<div>".$friend_info["nickname"]."</div>";
+          echo "<div>好友ID:".$row["friend_id"]."</div>";
+          echo "<div>好友邮箱:".$friend_info["email"]."</div>";
+          echo "<div>好友昵称:".$friend_info["nickname"]."</div>";
           echo "</div>";
           echo "</li>";
         }

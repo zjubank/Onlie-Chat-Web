@@ -85,7 +85,7 @@
   		echo "<meta http-equiv=\"refresh\" content=\"3;url=login.php\">";
   		exit();
   	}
-    if( !isset($_SESSION["friendid"]) )
+    if( $_SESSION["friendid"]==NULL )
   	{
   		echo "<p class=\"text-center\">请先选择好友</p>\n";
   		echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"friendlist.php\">这里</a>选择好友</p>\n";
@@ -119,11 +119,11 @@
     <div class="container">
       <p></p>
       <?php
-        $nickname_query = "SELECT nickname FROM user_info WHERE id=".$_SESSION["friendid"];
-        $nickname_result = mysql_query($nickname_query);
-        $nickname = mysql_fetch_array($nickname_result);
+      $friend_info_query = "SELECT email,nickname FROM user_info WHERE id=".$_SESSION["friendid"];
+      $friend_info_result = mysql_query($friend_info_query);
+      $friend_info = mysql_fetch_array($friend_info_result);
 
-        echo "<h2>与".$nickname["nickname"]."聊天中";
+        echo "<h2>与".$friend_info["nickname"]."聊天中</h2>";
        ?>
       <ul class="list-group">
         <div id="record_receive"></div>

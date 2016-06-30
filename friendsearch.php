@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    
+
     <title>首页</title>
 
     <!-- Bootstrap -->
@@ -27,13 +27,21 @@
       }
     </script>
     <script>
-      function addfriend(friendid)
+      function addfriend(id,friendid)
       {
-        xmlhttp=new XMLHttpRequest();
-        xmlhttp.open("POST","addfriend.php",true);
-        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        xmlhttp.send("friendid="+friendid);
-        alert("Add friend: "+friendid);
+        if(id==friendid)
+        {
+          alert("不能添加自己为好友!");
+          exit();
+        }
+        else
+        {
+          xmlhttp=new XMLHttpRequest();
+          xmlhttp.open("POST","addfriend.php",true);
+          xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+          xmlhttp.send("friendid="+friendid);
+          alert("Add friend: "+friendid);
+        }
       }
     </script>
 
@@ -90,7 +98,7 @@
                               while( $row = mysql_fetch_array($result))
                               {
                                 echo "<li class=\"list-group-item\">";
-                                echo "<div onclick=\"addfriend(".$row["id"].")\">";
+                                echo "<div onclick=\"addfriend(".$_SESSION["id"].",".$row["id"].")\">";
                                 echo "<div>ID: ".$row["id"]."</div>";
                                 echo "<div>Email: ".$row["email"]."</div>";
                                 echo "<div>Nickname: ".$row["nickname"]."</div>";
