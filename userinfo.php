@@ -70,7 +70,7 @@
             $info = mysql_fetch_array($info_result);
 
             echo "<p>邮箱：".$info["email"]."</p>";
-            echo "<p>昵称：".$info["nickname"]."</p>";
+            echo "<p>用户名：".$info["nickname"]."</p>";
             echo "<p>签名：".$info["phrase"]."</p>";
             echo "<p>性别：";
             if( $info["gender"]==1 ) echo "男";
@@ -82,12 +82,10 @@
             echo "<p>个人主页：".$info["homepage"]."</p>";
           ?>
           <p>
-            <!-- <button type="button" class="btn btn-primary">修改资料</button> -->
-            <!-- <button type="button" class="btn btn-default">修改密码</button> -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
               修改个人信息
             </button>
-
+            <a href="changepassword.php" class="btn btn-default" role="button">修改密码</a>
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -100,20 +98,16 @@
 
                     <form>
                       <div class="form-group">
-                        <label for="InputEmail">邮箱(注册后不可修改)</label>
-                        <p class="form-control-static">
-                          <?php echo $info["email"]; ?>
-                        </p>
+                        <label for="InputEmail">邮箱地址（注册后不可修改）</label>
+                        <input class="form-control" type="text" placeholder="<?php echo $info["email"]; ?>" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="InputNickname">昵称(注册后不可修改)</label>
-                        <p class="form-control-static">
-                          <?php echo $info["nickname"]; ?>
-                        </p>
+                        <label for="InputNickname">用户名（注册后不可修改）</label>
+                        <input class="form-control" type="text" placeholder="<?php echo $info["nickname"]; ?>" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="InputName">个性签名</label>
-                        <input type="text" class="form-control" id="exampleInputName2">
+                        <label for="InputPhrase">个性签名</label>
+                        <input type="text" class="form-control" id="InputPhrase">
                       </div>
                       <div class="form-group">
                         <label for="InputGender">性别</label>
@@ -131,21 +125,22 @@
                         </div>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option3" checked>
                             保密
                           </label>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="InputBirthday">生日</label>
+                        <input type="text" class="form-control" id="InputNameBirthday">
                       </div>
                       <div class="form-group">
                         <label for="InputPhonenumber">联系电话</label>
-                        <input type="text" class="form-control" id="exampleInputName2">
+                        <input type="text" class="form-control" id="InputPhonenumber">
                       </div>
                       <div class="form-group">
                         <label for="InputHomepage">个人主页</label>
-                        <input type="text" class="form-control" id="exampleInputName2">
+                        <input type="text" class="form-control" id="InputHomepage">
                       </div>
                     </form>
 
@@ -157,6 +152,8 @@
                 </div>
               </div>
             </div>
+            <!-- <button type="button" class="btn btn-primary">修改资料</button> -->
+
           </p>
         </div>
       </div>

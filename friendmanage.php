@@ -79,13 +79,13 @@
     					<div class="form-group">
     						<label class="col-sm-2 control-label">邮箱</label>
     						<div class="col-sm-10">
-    							<input name="email" id="email" type="text" placeholder="email" class="form-control">
+    							<input name="email" id="email" type="text" placeholder="邮箱" class="form-control">
     						</div>
     					</div>
     					<div class="form-group">
-    						<label class="col-sm-2 control-label">昵称</label>
+    						<label class="col-sm-2 control-label">用户名</label>
     						<div class="col-sm-10">
-    							<input name="nickname" id="nickname" type="text" placeholder="昵称" class="form-control">
+    							<input name="nickname" id="nickname" type="text" placeholder="用户名" class="form-control">
     						</div>
     					</div>
     					<div class="text-center">

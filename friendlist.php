@@ -129,7 +129,7 @@
           echo "<div class=\"col-md-9\">";
           echo "<div>好友ID:".$row["friend_id"]."</div>";
           echo "<div>好友邮箱:".$friend_info["email"]."</div>";
-          echo "<div>好友昵称:".$friend_info["nickname"]."</div>";
+          echo "<div>好友用户名:".$friend_info["nickname"]."</div>";
           echo "</div>"; // col9
           echo "<div class=\"col-md-1\">";
           echo "<p></p><button href=\"chat.php\" type=\"button\" class=\"btn btn-primary\" onclick=\"setfriendchat(".$row["friend_id"].",'".$friend_info["nickname"]."')\">开始聊天</button>";

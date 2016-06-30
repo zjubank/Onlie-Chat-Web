@@ -103,8 +103,8 @@
                                 echo "<div class=\"col-md-11\">";
                                 echo "<div>";
                                 echo "<div>ID: ".$row["id"]."</div>";
-                                echo "<div>Email: ".$row["email"]."</div>";
-                                echo "<div>Nickname: ".$row["nickname"]."</div>";
+                                echo "<div>邮箱: ".$row["email"]."</div>";
+                                echo "<div>用户名: ".$row["nickname"]."</div>";
                                 echo "</div>";
                                 echo "</div>"; // col-md-11
                                 echo "<div class=\"col-md-1\">";

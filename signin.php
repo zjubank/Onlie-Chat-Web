@@ -23,24 +23,26 @@
  		 <h2 class="form-signin-heading">注册</h2>
 
  		 <div class="form-group">
- 			 <label for="inputEmail">邮箱地址</label>
- 			 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+ 			 <label for="inputEmail">邮箱地址（不可重复，注册后不可修改）</label>
+ 			 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="邮箱地址" required autofocus>
+ 	 	 </div>
+
+		 <div class="form-group">
+   		 <label for="inputNickname">用户名（不可重复，注册后不可修改）</label>
+   		 <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="用户名" required>
  	 	 </div>
 
  		 <div class="form-group">
    		 <label for="inputPassword">密码</label>
-   		 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+   		 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
  	 	 </div>
 
      <div class="form-group">
    		 <label for="inputPassword">确认密码</label>
-   		 <input type="password" name="confirmpassword" id="reinputPassword" class="form-control" placeholder="Retype Password" required>
+   		 <input type="password" name="confirmpassword" id="reinputPassword" class="form-control" placeholder="确认密码" required>
  	 	 </div>
 
-		 <div class="form-group">
-   		 <label for="inputNickname">用户名</label>
-   		 <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="Nickname" required>
- 	 	 </div>
+
      <!-- <div class="form-group">
        <label for="inputAvatar">头像</label>
        <input type="file" id="exampleInputFile">
