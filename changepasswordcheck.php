@@ -27,15 +27,15 @@
         if( $posts["password"] != $posts["confirmpassword"] )
         {
           echo "<p class=\"text-center\">两次密码不匹配，请重新输入</p>\n";
-					echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"changepasswordcheck.php\">这里</a></p>\n";
-          echo "<p class=\"text-center\"><meta http-equiv=\"refresh\" content=\"3;url=changepasswordcheck.php\"></p>";
+					echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"changepassword.php\">这里</a></p>\n";
+          echo "<p class=\"text-center\"><meta http-equiv=\"refresh\" content=\"3;url=changepassword.php\"></p>";
 					exit();
         }
 				if( strlen($posts["password"]) <=6 )
 				{
           echo "<p class=\"text-center\">请使用6位以上密码</p>\n";
-					echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"changepasswordcheck.php\">这里</a></p>\n";
-          echo "<p class=\"text-center\"><meta http-equiv=\"refresh\" content=\"3;url=changepasswordcheck.php\"></p>";
+					echo "<p class=\"text-center\">如果您的浏览器不支持自动跳转，请点击<a href=\"changepassword.php\">这里</a></p>\n";
+          echo "<p class=\"text-center\"><meta http-equiv=\"refresh\" content=\"3;url=changepassword.php\"></p>";
 					exit();
         }
 

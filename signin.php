@@ -33,7 +33,7 @@
  	 	 </div>
 
  		 <div class="form-group">
-   		 <label for="inputPassword">密码</label>
+   		 <label for="inputPassword">密码（大于6位）</label>
    		 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
  	 	 </div>
 

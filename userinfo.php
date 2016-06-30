@@ -107,7 +107,7 @@
                       </div>
                       <div class="form-group">
                         <label for="InputPhrase">个性签名</label>
-                        <input type="text" class="form-control" id="InputPhrase">
+                        <input type="text" class="form-control" id="InputPhrase" placeholder="个性签名">
                       </div>
                       <div class="form-group">
                         <label for="InputGender">性别</label>
@@ -132,15 +132,15 @@
                       </div>
                       <div class="form-group">
                         <label for="InputBirthday">生日</label>
-                        <input type="text" class="form-control" id="InputNameBirthday">
+                        <input type="text" class="form-control" id="InputNameBirthday" placeholder="YYYY-MM-DD">
                       </div>
                       <div class="form-group">
                         <label for="InputPhonenumber">联系电话</label>
-                        <input type="text" class="form-control" id="InputPhonenumber">
+                        <input type="text" class="form-control" id="InputPhonenumber" placeholder="联系电话">
                       </div>
                       <div class="form-group">
                         <label for="InputHomepage">个人主页</label>
-                        <input type="text" class="form-control" id="InputHomepage">
+                        <input type="text" class="form-control" id="InputHomepage" placeholder="个人主页">
                       </div>
                     </form>
 

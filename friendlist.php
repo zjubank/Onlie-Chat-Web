@@ -108,7 +108,7 @@
       if(empty($row))
       {
         echo "<div class=\"container-fluid\">";
-        echo "<p></p><p>你还没有好友，快去添加一个吧</p>";
+        echo "<p></p><p>您还没有好友，快去添加一个吧</p>";
         echo "<div>";
         exit();
       }
@@ -169,7 +169,6 @@
           echo "<p></p><button type=\"button\" class=\"btn btn-danger\" onclick=\"setfrienddelete(".$row["friend_id"].",'".$friend_info["nickname"]."')\">删除好友</button>";
           echo "</div>";// col1
           echo "</div>";// container-fluid
-          echo "</div>";
           echo "</li>";
         }while( $row = mysql_fetch_array($friend_result) );
       }

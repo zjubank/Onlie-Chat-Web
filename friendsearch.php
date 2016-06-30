@@ -41,6 +41,7 @@
           xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
           xmlhttp.send("friendid="+friendid);
           alert("Add friend: "+friendid);
+          window.location.href="friendlist.php";
         }
       }
     </script>
@@ -93,26 +94,38 @@
       $result = mysql_query("SELECT id,email,nickname,phrase,gender,birth_day,phonenumber,homepage FROM user_info
                               where ('$id'='' or id='$id')
                               and ('$email'='' or email='$email')
-                              and ('$nickname'='' or id='$nickname')
+                              and ('$nickname'='' or nickname='$nickname')
                               ");
-                              while( $row = mysql_fetch_array($result))
+
+                              $row = mysql_fetch_array($result);
+                              if(empty($row))
                               {
-                                echo "<li class=\"list-group-item\">";
                                 echo "<div class=\"container-fluid\">";
-                                echo "<div class=\"row\">";
-                                echo "<div class=\"col-md-11\">";
+                                echo "<p></p><p>暂时没有您所搜索的用户</p>";
                                 echo "<div>";
-                                echo "<div>ID: ".$row["id"]."</div>";
-                                echo "<div>邮箱: ".$row["email"]."</div>";
-                                echo "<div>用户名: ".$row["nickname"]."</div>";
-                                echo "</div>";
-                                echo "</div>"; // col-md-11
-                                echo "<div class=\"col-md-1\">";
-                                echo "<p></p><button type=\"button\" class=\"btn btn-default\"  onclick=\"addfriend(".$_SESSION["id"].",".$row["id"].")\">加为好友</button>";
-                                echo "</div>"; // col-md-1
-                                echo "</div>"; // row
-                                echo "</div>"; // container-fluid
-                                echo "</li>";
+                                exit();
+                              }
+                              else
+                              {
+                                do
+                                {
+                                  echo "<li class=\"list-group-item\">";
+                                  echo "<div class=\"container-fluid\">";
+                                  echo "<div class=\"row\">";
+                                  echo "<div class=\"col-md-11\">";
+                                  echo "<div>";
+                                  echo "<div>ID: ".$row["id"]."</div>";
+                                  echo "<div>邮箱: ".$row["email"]."</div>";
+                                  echo "<div>用户名: ".$row["nickname"]."</div>";
+                                  echo "</div>";
+                                  echo "</div>"; // col-md-11
+                                  echo "<div class=\"col-md-1\">";
+                                  echo "<p></p><button type=\"button\" class=\"btn btn-default\"  onclick=\"addfriend(".$_SESSION["id"].",".$row["id"].")\">加为好友</button>";
+                                  echo "</div>"; // col-md-1
+                                  echo "</div>"; // row
+                                  echo "</div>"; // container-fluid
+                                  echo "</li>";
+                                }while ($row = mysql_fetch_array($result));
                               }
     ?>
   </div>
